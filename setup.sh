@@ -81,13 +81,28 @@ echo "Installing homebrew cask 🧙‍♂️"
 brew install homebrew/cask
 
 apps=(
-  alfred
-  bettertouchtool
-  bitwarden
+  raycast
   google-chrome
-  iterm2
-  sourcetree
+  warp
   spotify
+  microsoft-outlook
+  microsoft-teams
+  arc
+  visual-studio-code
+  
+  obsidian
+  anki
+  todoist
+  docker
+  discord
+  karabiner
+  beeper
+  anki
+  adobe acrobat reader
+  cleanshotx
+  clickup
+  morgen
+  google apps
 )
 
 # Install apps to /Applications
@@ -95,10 +110,12 @@ apps=(
 echo "installing apps with Cask... ⏳"
 brew install --cask --appdir="/Applications" ${apps[@]}
 
-open /Applications/Alfred\ 5.app
 
 brew cleanup
 # ------- Apps -------
+
+# install dashlane
+# connect to warp
 
 # ------- Mac Settings -------
 echo "Setting some Mac settings... ⚙️"
@@ -108,11 +125,6 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 #"Showing icons for hard drives, servers, and removable media on the desktop ℹ️"
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-
-#"Enabling UTF-8 ONLY in Terminal.app and setting the Pro theme by default 💻"
-defaults write com.apple.terminal StringEncodings -array 4
-defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Pro"
 
 #"Preventing Time Machine from prompting to use new hard drives as backup volume 😫"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -126,8 +138,7 @@ killall Finder
 
 # ------- Advertisment -------
 echo "Done! 🥳"
-echo "Thank you for using my script! 🙏 Feel free to subscribe to our YouTube channel! It would be so 
-cool! 😊"
+
 
 while true; do
     read -p "Do you want me to open my YouTube Channel for you? 🎥 (y/n) " yn
