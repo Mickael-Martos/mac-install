@@ -1,23 +1,19 @@
 # ------- SSH Key for GitHub -------
-echo "Creating an SSH key for you... 🔐"
-ssh-keygen -t rsa
+# echo "Creating an SSH key for you... 🔐"
+# ssh-keygen -t rsa
 
-echo "Please add this public key to Github 👻 \n"
-cat ~/.ssh/id_rsa.pub
-open -a Safari https://github.com/settings/keys
-read -p "Press [Enter] key after this... ⌨️"
+# echo "Please add this public key to Github 👻 \n"
+# cat ~/.ssh/id_rsa.pub
+# open -a Safari https://github.com/settings/keys
+# read -p "Press [Enter] key after this... ⌨️"
 # ------- SSH Key for GitHub -------
-
-# ------- Install things from the App Store -------
-# install 
-# ------- Install things from the App Store -------
 
 # ------- Homebrew -------
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew... 🍺"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$user/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -26,6 +22,10 @@ fi
 # Update homebrew recipes
 echo "Updating homebrew... 🆕"
 brew update
+
+echo "Installing homebrew cask 🧙‍♂️"
+brew install homebrew/cask
+
 # ------- Homebrew -------
 
 # ------- Git -------
@@ -44,9 +44,130 @@ read mail
 git config --global user.email $mail
 # ------- Git -------
 
+# ------- Docker Setup -------
+echo "Installing Docker... 🦸‍♂️"
+brew install docker
+# ------- Docker Setup -------
+
+# ------- Python Setup -------
+brew update
+brew install python
+python3 -m pip install pyp
+
+# Add Python and Pyp to PATH
+echo 'export PATH="/usr/local/opt/python/libexec/bin:$PATH"' >> ~/.bash_profile
+echo 'export PYP_SITE_DIR="$(python3 -m site --user-site)"' >> ~/.bash_profile
+source ~/.bash_profile
+
+# ------- Python Setup -------
+
+# ------- Go Setup -------
+# ------- Go Setup -------
+
+# ------- Nodejs Setup -------
+# ------- Nodejs Setup -------
+
+
+# ------- Dashlane setup -------
+echo "Setting up Dashlane..."
+echo "download dashlane using the app store"
+
+open -a "App Store"
+
+echo "connect to your dashlane..."
+read
+# ------- Dashlane setup -------
+
+# ------- Karabiner setup -------
+echo "Setting up Karabiner..."
+
+brew install --cask karabiner-elements
+
+echo "Go to https://github.com/mxstbr/karabiner?tab=readme-ov-file and clone the project"
+read
+
+echo "Delete the default ~/.config/karabiner folder"
+read
+
+echo "Create a symlink with ln -s ~/github/mxstbr/karabiner ~/.config (where ~/github/mxstbr/karabiner is your local path to where you cloned the repository)"
+read
+
+echo "Restart karabiner_console_user_server with launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server"
+read
+
+echo "Open the repo and change the karabiner files with the one from this mac-install"
+read
+
+
+# ------- Karabiner setup -------
+
+# ------- Raycast setup -------
+echo "Setting up Raycast..."
+
+brew install --cask raycast
+
+echo "Open raycast and connect with your github account"
+echo "PS: if the setup cannot be put properly you can import the raycast configuration to the mac-install repo"
+read
+
+# ------- Raycast setup -------
+
+# ------- Obsidian setup -------
+echo "Setting up Obsidian..."
+
+brew install --cask obsidian
+
+echo "Download your vault from github"
+read
+
+echo "Add the necessary plugins"
+read
+
+# ------- Obsidian setup -------
+
+# ------- Visual Studio Code setup -------
+echo "Setting up visual-studio-code..."
+
+brew install --cask visual-studio-code
+
+echo "Connect to your github..."
+read
+
+# ------- Visual Studio Code setup -------
+
+# ------- Apps -------
+
+apps=(
+  google-chrome
+  spotify
+  microsoft-outlook
+  microsoft-teams
+  arc
+  anki
+  todoist
+  docker
+  discord
+  beeper
+  anki
+  adobe acrobat reader
+  cleanshotx
+  clickup
+  morgen
+)
+
+# Install apps to /Applications
+# Default is: /Users/$user/Applications
+echo "installing apps with Cask... ⏳"
+brew install --cask --appdir="/Applications" ${apps[@]}
+
+echo "Cleaning up brew 🧹"
+brew cleanup
+# ------- Apps -------
+
+
 # ------- Terminal Setup -------
 
-#Install Zsh & Oh My Zsh
+# #Install Zsh & Oh My Zsh
 echo "Installing Oh My ZSH... 😱"
 curl -L http://install.ohmyz.sh | sh
 
@@ -66,49 +187,13 @@ chsh -s /usr/local/bin/zshd
 
 # ------- Terminal Setup -------
 
-echo "Cleaning up brew 🧹"
-brew cleanup
+# ------- Warp Setup -------
 
-# ------- Apps -------
-echo "Installing homebrew cask 🧙‍♂️"
-brew install homebrew/cask
+brew install --cask warp
 
-apps=(
-  raycast
-  google-chrome
-  warp
-  spotify
-  microsoft-outlook
-  microsoft-teams
-  arc
-  visual-studio-code
-  
-  obsidian
-  anki
-  todoist
-  docker
-  discord
-  karabiner
-  beeper
-  anki
-  adobe acrobat reader
-  cleanshotx
-  clickup
-  morgen
-  google apps
-)
+read -p "Using Warp with zsh, open warp terminal and run 'chsh -s $(which zsh)' "
 
-# Install apps to /Applications
-# Default is: /Users/$user/Applications
-echo "installing apps with Cask... ⏳"
-brew install --cask --appdir="/Applications" ${apps[@]}
-
-
-brew cleanup
-# ------- Apps -------
-
-# install dashlane
-# connect to warp
+# ------- Warp Setup -------
 
 # ------- Mac Settings -------
 echo "Setting some Mac settings... ⚙️"
@@ -131,13 +216,3 @@ killall Finder
 
 # ------- Advertisment -------
 echo "Done! 🥳"
-
-
-while true; do
-    read -p "Do you want me to open my YouTube Channel for you? 🎥 (y/n) " yn
-    case $yn in
-        [Yy]* ) open -a Safari https://www.youtube.com/channel/UChXpovO__JiZrbcfTDFt39w?sub_confirmation=1; exit;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
