@@ -1,11 +1,11 @@
 # ------- SSH Key for GitHub -------
-# echo "Creating an SSH key for you... 🔐"
-# ssh-keygen -t rsa
+echo "Creating an SSH key for you... 🔐"
+ssh-keygen -t rsa
 
-# echo "Please add this public key to Github 👻 \n"
-# cat ~/.ssh/id_rsa.pub
-# open -a Safari https://github.com/settings/keys
-# read -p "Press [Enter] key after this... ⌨️"
+echo "Please add this public key to Github 👻 \n"
+cat ~/.ssh/id_rsa.pub
+open -a Safari https://github.com/settings/keys
+read -p "Press [Enter] key after this... ⌨️"
 # ------- SSH Key for GitHub -------
 
 # ------- Homebrew -------
@@ -45,8 +45,10 @@ git config --global user.email $mail
 # ------- Git -------
 
 # ------- Docker Setup -------
+
 echo "Installing Docker... 🦸‍♂️"
-brew install docker
+brew install --cask docker
+
 # ------- Docker Setup -------
 
 # ------- Python Setup -------
@@ -58,15 +60,21 @@ python3 -m pip install pyp
 echo 'export PATH="/usr/local/opt/python/libexec/bin:$PATH"' >> ~/.bash_profile
 echo 'export PYP_SITE_DIR="$(python3 -m site --user-site)"' >> ~/.bash_profile
 source ~/.bash_profile
-
 # ------- Python Setup -------
 
-# ------- Go Setup -------
-# ------- Go Setup -------
 
 # ------- Nodejs Setup -------
-# ------- Nodejs Setup -------
+echo "Installing NVM... 🦸‍♂️"
+brew install nvm
 
+echo "add the following line to your shell profile (e.g., ~/.bash_profile or ~/.zshrc):"
+echo "source $(brew --prefix nvm)/nvm.sh"
+read
+
+echo "Installing Nodejs... 🦸‍♂️"
+nvm install node
+nvm install --lts
+# ------- Nodejs Setup -------
 
 # ------- Dashlane setup -------
 echo "Setting up Dashlane..."
@@ -139,17 +147,15 @@ read
 
 apps=(
   google-chrome
+  arc
   spotify
   microsoft-outlook
   microsoft-teams
-  arc
   anki
   todoist
-  docker
   discord
   beeper
   anki
-  adobe acrobat reader
   cleanshotx
   clickup
   morgen
@@ -191,7 +197,8 @@ chsh -s /usr/local/bin/zshd
 
 brew install --cask warp
 
-read -p "Using Warp with zsh, open warp terminal and run 'chsh -s $(which zsh)' "
+echo "Using Warp with zsh, open warp terminal and run 'chsh -s $(which zsh)' "
+read
 
 # ------- Warp Setup -------
 
@@ -210,9 +217,23 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 #"Setting screenshot format to PNG 📸"
 defaults write com.apple.screencapture type -string "png"
 
+#"Automatically hiding the dock"
+defaults write com.apple.dock autohide -bool true; killall Dock
+
+echo "now set the key repeat rate in system setting / keyboard to Fast"
+echo "and the Delay until repeat in system setting / keyboard to Short"
+open /System/Library/PreferencePanes/Keyboard.prefPane
+read
+
+echo "now go to the accebillity / zoom to be able to zoom using the control button"
+open "x-apple.systempreferences:com.apple.preference.universalaccess"
+read
+
 # ------- Mac Settings -------
 
 killall Finder
 
 # ------- Advertisment -------
+echo "You might want to install Go with GVM, for that you can follow this repo : https://github.com/moovweb/gvm?tab=readme-ov-file"
 echo "Done! 🥳"
+
