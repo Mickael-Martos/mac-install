@@ -8,15 +8,8 @@ open -a Safari https://github.com/settings/keys
 read -p "Press [Enter] key after this... ⌨️"
 # ------- SSH Key for GitHub -------
 
-# ------- Xcode -------
-echo "Installing xcode-stuff 👨‍💻"
-xcode-select --install
-# ------- Xcode -------
-
 # ------- Install things from the App Store -------
-echo "Install things from the App Store e. g. Final Cut"
-open /System/Applications/App\ Store.app 
-read -p "Press [Enter] key after you are done... ⌨️"
+# install 
 # ------- Install things from the App Store -------
 
 # ------- Homebrew -------
