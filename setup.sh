@@ -115,7 +115,7 @@ echo "Setting up Raycast..."
 brew install --cask raycast
 
 echo "Open raycast and connect with your github account"
-echo "PS: if the setup cannot be put properly you can import the raycast configuration to the mac-install repo"
+echo "PS: if the setup cannot be put properly you can import the raycast configuration: https://github.com/Mickael-Martos/raycast"
 read
 
 # ------- Raycast setup -------
