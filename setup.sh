@@ -1,3 +1,13 @@
+# ------- Dashlane setup -------
+echo "Setting up Dashlane..."
+echo "download dashlane using the app store"
+
+open -a "App Store"
+
+echo "connect to your dashlane..."
+read
+# ------- Dashlane setup -------
+
 # ------- SSH Key for GitHub -------
 echo "Creating an SSH key for you... 🔐"
 ssh-keygen -t rsa
@@ -44,47 +54,6 @@ read mail
 git config --global user.email $mail
 # ------- Git -------
 
-# ------- Docker Setup -------
-
-echo "Installing Docker... 🦸‍♂️"
-brew install --cask docker
-
-# ------- Docker Setup -------
-
-# ------- Python Setup -------
-brew update
-brew install python
-python3 -m pip install pyp
-
-# Add Python and Pyp to PATH
-echo 'export PATH="/usr/local/opt/python/libexec/bin:$PATH"' >> ~/.bash_profile
-echo 'export PYP_SITE_DIR="$(python3 -m site --user-site)"' >> ~/.bash_profile
-source ~/.bash_profile
-# ------- Python Setup -------
-
-
-# ------- Nodejs Setup -------
-echo "Installing NVM... 🦸‍♂️"
-brew install nvm
-
-echo "add the following line to your shell profile (e.g., ~/.bash_profile or ~/.zshrc):"
-echo "source $(brew --prefix nvm)/nvm.sh"
-read
-
-echo "Installing Nodejs... 🦸‍♂️"
-nvm install node
-nvm install --lts
-# ------- Nodejs Setup -------
-
-# ------- Dashlane setup -------
-echo "Setting up Dashlane..."
-echo "download dashlane using the app store"
-
-open -a "App Store"
-
-echo "connect to your dashlane..."
-read
-# ------- Dashlane setup -------
 
 # ------- Karabiner setup -------
 echo "Setting up Karabiner..."
@@ -201,6 +170,38 @@ echo "Using Warp with zsh, open warp terminal and run 'chsh -s $(which zsh)' "
 read
 
 # ------- Warp Setup -------
+
+# ------- Docker Setup -------
+
+echo "Installing Docker... 🦸‍♂️"
+brew install --cask docker
+
+# ------- Docker Setup -------
+
+# ------- Python Setup -------
+brew update
+brew install python
+python3 -m pip install pyp
+
+# Add Python and Pyp to PATH
+echo 'export PATH="/usr/local/opt/python/libexec/bin:$PATH"' >> ~/.bash_profile
+echo 'export PYP_SITE_DIR="$(python3 -m site --user-site)"' >> ~/.bash_profile
+source ~/.bash_profile
+# ------- Python Setup -------
+
+
+# ------- Nodejs Setup -------
+echo "Installing NVM... 🦸‍♂️"
+brew install nvm
+
+echo "add the following line to your shell profile (e.g., ~/.bash_profile or ~/.zshrc):"
+echo "source $(brew --prefix nvm)/nvm.sh"
+read
+
+echo "Installing Nodejs... 🦸‍♂️"
+nvm install node
+nvm install --lts
+# ------- Nodejs Setup -------
 
 # ------- Mac Settings -------
 echo "Setting some Mac settings... ⚙️"
