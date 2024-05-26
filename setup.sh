@@ -23,7 +23,7 @@ read -p "Press [Enter] key after this... ⌨️"
 # Install if we don't have it
 if test ! $(which brew); then
   echo "Installing homebrew... 🍺"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$user/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -125,7 +125,7 @@ apps=(
   discord
   beeper
   anki
-  cleanshotx
+  cleanshot
   clickup
   morgen
 )
@@ -193,9 +193,10 @@ source ~/.bash_profile
 # ------- Nodejs Setup -------
 echo "Installing NVM... 🦸‍♂️"
 brew install nvm
+mkdir ~/.nvm
 
 echo "add the following line to your shell profile (e.g., ~/.bash_profile or ~/.zshrc):"
-echo "source $(brew --prefix nvm)/nvm.sh"
+echo "export NVM_DIR=~/.nvm source $(brew --prefix nvm)/nvm.sh"
 read
 
 echo "Installing Nodejs... 🦸‍♂️"
