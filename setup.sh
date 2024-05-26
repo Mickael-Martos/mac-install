@@ -180,13 +180,36 @@ brew install --cask docker
 
 # ------- Python Setup -------
 brew update
-brew install python
-python3 -m pip install pyp
+brew install ncurses
+brew install pyenv
+brew install pyenv-virtualenv
 
-# Add Python and Pyp to PATH
-echo 'export PATH="/usr/local/opt/python/libexec/bin:$PATH"' >> ~/.bash_profile
-echo 'export PYP_SITE_DIR="$(python3 -m site --user-site)"' >> ~/.bash_profile
-source ~/.bash_profile
+echo " include in the shell : alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'"
+
+echo " add the following:
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+plugin=(
+  pyenv
+)
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+"
+read
+
+
+echo "reloading shell with - source ~/.zshrc"
+read
+
+pyenv install 3.12.3
+
+pyenv global 3.12.3
 # ------- Python Setup -------
 
 
