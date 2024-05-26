@@ -91,7 +91,7 @@ echo "Setting up Karabiner..."
 
 brew install --cask karabiner-elements
 
-echo "Go to https://github.com/mxstbr/karabiner?tab=readme-ov-file and clone the project"
+echo "Go to https://github.com/Mickael-Martos/karabiner?tab=readme-ov-file and clone the project"
 read
 
 echo "Delete the default ~/.config/karabiner folder"
