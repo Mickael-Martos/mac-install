@@ -19,3 +19,4 @@ for my old mac:
 - ptimize Wi-Fi bands and disable slow network auto-join
 - Re-index Spotlight for faster searches
 
+https://naumanahmad86.medium.com/9-hidden-settings-to-make-your-mac-faster-again-d842c97c9baf
